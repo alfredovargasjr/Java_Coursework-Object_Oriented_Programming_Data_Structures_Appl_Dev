@@ -1,0 +1,16 @@
+import java.awt.GridLayout;
+
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+public class Buttons {
+
+	public static void main(String[] args) {
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new GridLayout(2,2));
+		buttonPanel.add(new JTextArea());
+		buttonPanel.add(new JTextArea());
+		
+	}
+
+}

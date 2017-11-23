@@ -1,0 +1,22 @@
+
+public class StringComparator {
+	private String first;
+	private String second;
+	
+	public StringComparator(){
+		first = null;
+		second = null;
+	}
+	public StringComparator(String f, String s){
+		first = f;
+		second = s;
+	}
+	
+	@Override
+	public int compare(){
+		return 1;
+	}
+	
+	
+
+}

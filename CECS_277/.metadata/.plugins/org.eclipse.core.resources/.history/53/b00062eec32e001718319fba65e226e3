@@ -1,0 +1,13 @@
+import java.awt.GridLayout;
+
+import javax.swing.JPanel;
+
+public class Buttons {
+
+	public static void main(String[] args) {
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new GridLayout(2,2));
+		
+	}
+
+}

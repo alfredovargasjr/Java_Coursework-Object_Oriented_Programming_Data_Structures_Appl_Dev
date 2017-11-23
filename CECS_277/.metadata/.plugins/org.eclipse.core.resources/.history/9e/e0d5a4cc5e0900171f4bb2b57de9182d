@@ -1,0 +1,112 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.regex.*;
+public class Decryptor {
+
+	public static void main(String[] args) 
+	{	
+		menu();
+	}
+	
+	/**
+	 * menu of options
+	 * decrypt or encrypt a file
+	 * 
+	 */
+	public static void menu()
+	{
+		boolean flag;
+		do{
+			flag = false;
+			System.out.println("Menu: \n[1] Encrypt File\n[2] Decrypt File\n[0] Exit");
+			switch(getInt()){
+			case 1:
+				EncryptFile();
+				break;
+			case 2: 
+				DecryptFile();
+				break;
+			case 0:
+				flag = true;
+				break;
+			default:
+				System.out.println("\nInvalid Option. Re-Enter.");	
+				flag = false;
+			}
+		}while(!flag);
+	}
+	
+	public static void EncryptFile()
+	{
+		File inputFile = readFile();
+		
+		
+	}
+	
+	public static void DecryptFile()
+	{
+		File inputFile = readFile();
+	}
+	
+	public static File readFile()
+	{
+		Scanner in = new Scanner(System.in);
+		String fileName;
+		boolean flag;
+		do{
+			flag = false;
+			System.out.println("\nEnter the File Name.");
+			fileName = in.next();
+//			if(!fileName.matches("/\\w+\\.txt/")){
+//				System.out.println("\nInvalid Text File Name.");
+//				flag = true;
+//			}
+		}while(flag);
+		File inputFile = null;
+		try{
+			inputFile = new File(fileName);
+			Scanner scnFile = new Scanner(inputFile);
+		}
+		catch(FileNotFoundException e){
+			System.out.println("File Not Found.");
+			
+		}
+		finally{
+			System.out.println("File Obtained.");
+		}
+		return inputFile;
+		//System.out.println("File Obtained.");
+	}
+	
+	/**
+	 * input validation for int
+	 * @return valid entry
+	 */
+	public static int getInt()
+	{
+		boolean flag;
+		int choice = 0;
+		Scanner in = new Scanner(System.in);
+		do{
+			flag = false;
+			try{
+				System.out.print("\nChoice: ");
+				choice = in.nextInt();
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println("\nInvalid input. Enter Integer.");
+				flag = true;
+			}
+			finally
+			{
+				in.reset();
+				in.nextLine();
+			}
+		}while(flag);
+		return choice;
+	}
+}

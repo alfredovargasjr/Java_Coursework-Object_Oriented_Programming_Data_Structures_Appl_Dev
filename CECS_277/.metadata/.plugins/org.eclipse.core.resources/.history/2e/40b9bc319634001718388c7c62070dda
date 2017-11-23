@@ -1,0 +1,94 @@
+package xDrawCar;
+
+import javax.swing.*;  // Java graphics
+import java.awt.*;     // Java painting
+
+/**
+ * Java GUI program that creates a picture of a car.
+ * 
+ * @author Tammy VanDeGrift, modified by Steven R. Vegdahl
+ * @version Lecture 6
+ */
+public class drawCar extends Canvas {
+    
+    /** performs initialization, such as setting size and background color */
+    public void init() {
+        // set background color to light yellow
+        Color lightYellow = new Color(250, 250, 210);
+        setBackground(lightYellow);
+     
+        // set the height and width of our graphical object so
+        // that things are visible inside it
+        setSize(600,600);
+    }
+    
+    /** draws the components of the car */
+    public void paint(Graphics g) {   
+        
+        // perform superclass paint behavior
+        super.paint(g);
+        
+        // draw the body of the car
+        g.setColor(Color.red);
+        Polygon carBody = new Polygon();
+        // add points to the polygon
+        carBody.addPoint(75, 425);
+        carBody.addPoint(75, 350);
+        carBody.addPoint(150, 325);
+        carBody.addPoint(200, 275);
+        carBody.addPoint(350, 275);
+        carBody.addPoint(425, 325);
+        carBody.addPoint(450, 325);
+        carBody.addPoint(455, 425);
+        g.fillPolygon(carBody);
+        
+        // draw the tires
+        g.setColor(Color.black);   // color of tires
+        g.fillOval(150, 375, 75, 75);
+        g.fillOval(350, 375, 75, 75);
+        g.setColor(Color.gray);    // color of hubcabs
+        g.fillOval(170, 390, 40, 40);
+        g.fillOval(370, 390, 40, 40);
+        
+        // draw headlights
+        g.setColor(Color.yellow);   // color of headlights
+        g.fillOval(70, 360, 10, 40);
+        
+        // draw front windshield
+        g.setColor(Color.blue);
+        Polygon windshield = new Polygon();
+        // create triangular shape
+        windshield.addPoint(165, 320);
+        windshield.addPoint(205, 280);
+        windshield.addPoint(205, 320);
+        g.fillPolygon(windshield);
+        
+        // give the car a title
+        Font titleFont = new Font("Serif", Font.PLAIN, 50);
+        g.setFont(titleFont);
+        g.setColor(Color.green);
+        g.drawString("Zoom, Zoom!!", 100, 150);
+    }
+    
+    /** constructor: initializes Car object */
+    public drawCar() {
+        // just call the init() method
+        init();
+    }
+    
+   /**
+    * main method: creates frame and displays it
+    * 
+    * @param args command line arguments
+    */
+   public static void main(String[] args) {
+       JFrame f = new JFrame(); // create frame object
+       drawCar c = new drawCar(); // create Car object
+       f.getContentPane().add(c); // put Car in frame
+       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // set up exit
+       f.setSize(c.getWidth(), c.getHeight()+25); // set height/width
+       f.setVisible(true); // display everything
+   }
+
+}
+

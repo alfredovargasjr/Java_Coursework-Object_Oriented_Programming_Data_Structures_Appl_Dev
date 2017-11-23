@@ -1,0 +1,33 @@
+package ShapeGame;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+import Car.Car;
+
+public class ShapeComponent extends JComponent {
+private int x, y;
+	
+	public ShapeComponent(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	public ShapeComponent(){
+		x = 0;
+		y = 0;
+	}
+	
+	public void setCoordinate(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+	
+	public void paintComponent(Graphics g){
+		Graphics2D g2 = (Graphics2D) g;
+		Circle c = new Circle(x,y);
+		c.draw(g2);
+	}
+
+}

@@ -1,0 +1,17 @@
+package Car;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+public class CarComponent extends JComponent {
+	
+	public void paintComponent(Graphics g){
+		
+		Graphics2D g2 = (Graphics2D) g;
+		Car cr = new Car(0,0);
+		cr.draw(g2);
+	}
+
+}

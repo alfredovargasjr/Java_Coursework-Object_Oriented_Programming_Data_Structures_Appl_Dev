@@ -1,0 +1,66 @@
+package NotationConversion;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class conversion extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					conversion frame = new conversion();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public conversion() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		textField = new JTextField();
+		textField.setBounds(99, 11, 242, 33);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton Button9 = new JButton("9");
+		Button9.setBounds(98, 88, 38, 38);
+		contentPane.add(Button9);
+		
+		JButton Button8 = new JButton("8");
+		Button8.setBounds(146, 88, 38, 38);
+		contentPane.add(Button8);
+		
+		JButton Button7 = new JButton("7");
+		Button7.setBounds(194, 88, 38, 38);
+		contentPane.add(Button7);
+		
+		JButton Button6 = new JButton("6");
+		Button6.setBounds(194, 78, 38, 38);
+		contentPane.add(Button6);
+		
+	}
+}

@@ -1,0 +1,33 @@
+package NotationConversion;
+
+public class inputField {
+	private String s;
+	
+	public inputField(){
+		s = "";
+	}
+	
+	public inputField(String st){
+		s = st;
+	}
+	
+	public void add(String st){
+		s = s + st;
+	}
+	
+	public void delete(){
+		System.out.println(s + "asdf");
+		if(s != ""){
+			s = s.substring(0, s.length() - 1);
+		}
+	}
+	
+	public void clear(){
+		s = "";
+	}
+	
+	public String get(){
+		return s;
+	}
+
+}

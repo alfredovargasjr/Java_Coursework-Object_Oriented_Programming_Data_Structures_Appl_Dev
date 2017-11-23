@@ -1,0 +1,6 @@
+If you encrypt a file using some encrypting algorithms it will have all of its letters jumbled up, and will
+look as if there is no hope of decrypting it without knowing the keyword. Guessing the keyword seems
+hopeless too. There are just too many possible keywords. However, someone who is trained in
+decryption will be able to break this cipher in no time at all. The average letter frequencies of English
+letters are well known. The most common letter is E, which occurs about 13 percent of the time. Here
+are the average frequencies of English letters

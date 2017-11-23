@@ -1,0 +1,90 @@
+package theButtons;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+
+public class Buttons extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtThisButtonHas;
+	private JTextField txtButtonClickedN;
+	private final Action action = new SwingAction();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Buttons frame = new Buttons();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Buttons() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		txtThisButtonHas = new JTextField();
+		txtThisButtonHas.setHorizontalAlignment(SwingConstants.CENTER);
+		//String s = "This button has been clicked \n n Times!!!";
+		txtThisButtonHas.setText("Button Clicked N Times!!");
+		txtThisButtonHas.setBounds(10, 70, 199, 69);
+		contentPane.add(txtThisButtonHas);
+		txtThisButtonHas.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Button 1");
+		btnNewButton.setAction(action);
+		btnNewButton.setBounds(55, 152, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		txtButtonClickedN = new JTextField();
+		txtButtonClickedN.setToolTipText("");
+		txtButtonClickedN.setHorizontalAlignment(SwingConstants.CENTER);
+		txtButtonClickedN.setText("Button Clicked N Times!!");
+		txtButtonClickedN.setColumns(10);
+		txtButtonClickedN.setBounds(219, 70, 199, 69);
+		contentPane.add(txtButtonClickedN);
+		
+		JButton btnButton = new JButton("Button 2");
+		btnButton.setBounds(283, 152, 89, 23);
+		contentPane.add(btnButton);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "Click");
+			putValue(SHORT_DESCRIPTION, "Incriment every button click");
+		}
+		
+		private int numClicks = 0;
+		public void actionPerformed(ActionEvent e) {
+			numClicks++;
+		}
+		
+		public int getNumClicks(){
+			return numClicks;
+		}
+	}
+}

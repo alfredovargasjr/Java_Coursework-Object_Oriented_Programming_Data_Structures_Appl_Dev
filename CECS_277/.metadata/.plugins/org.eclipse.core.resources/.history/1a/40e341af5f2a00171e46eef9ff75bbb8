@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 
+ */
+
+/**
+ * @author Alfredo
+ * CECS 277
+ * Project 8; Hash Map, Movies objects, remapping
+ * Susan
+ *
+ */
+public class hashDrvier {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		List<Integer> ls = new ArrayList();
+		ls.add(1);
+		ls.add(2);
+		ls.add(3);
+		System.out.println(ls.get(0));
+//		genericHashTable hs = new genericHashTable();
+//		hs.insert("one", 1);
+//		hs.insert("two", 2);
+//		hs.insert("three", 3);
+//		System.out.println(hs.get("one"));
+
+	}
+
+}

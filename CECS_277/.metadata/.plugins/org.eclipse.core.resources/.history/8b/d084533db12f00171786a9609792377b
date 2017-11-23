@@ -1,0 +1,14 @@
+package theButtons;
+
+import javax.swing.JPanel;
+
+public class LetterButtons extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public LetterButtons() {
+
+	}
+
+}

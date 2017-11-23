@@ -1,0 +1,68 @@
+package theButtons;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+
+public class Buttons extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtThisButtonHas;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Buttons frame = new Buttons();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Buttons() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		txtThisButtonHas = new JTextField();
+		txtThisButtonHas.setHorizontalAlignment(SwingConstants.TRAILING);
+		//String s = "This button has been clicked \n n Times!!!";
+		txtThisButtonHas.setText("Button Clicked N Times!!");
+		txtThisButtonHas.setBounds(10, 70, 199, 69);
+		contentPane.add(txtThisButtonHas);
+		txtThisButtonHas.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Button 1");
+		btnNewButton.setBounds(55, 152, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setText("This button has been clicked n times!!!");
+		textField.setColumns(10);
+		textField.setBounds(219, 70, 199, 69);
+		contentPane.add(textField);
+		
+		JButton btnButton = new JButton("Button 2");
+		btnButton.setBounds(283, 152, 89, 23);
+		contentPane.add(btnButton);
+	}
+}

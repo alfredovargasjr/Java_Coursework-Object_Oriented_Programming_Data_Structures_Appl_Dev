@@ -1,0 +1,100 @@
+package NotationConversion;
+
+import java.util.Stack;
+
+public class solvePostFix {
+	private String s;
+	private double result;
+	
+	solvePostFix(String st){
+		s = st;
+		if(s != null && s.length() != 0)
+			solve();
+	}
+	
+	public void solve(){
+		char[] input = s.toCharArray();
+		char c;
+		double[] val = new double[2];
+		int j = 0;
+		Stack<Integer> intStk = new Stack<Integer>();	//a and b, digits for operations 
+		Stack<Double> resultStk = new Stack<Double>();
+		for(int i = 0; i < input.length; i++){
+			if(isOperand(input[i])){
+				intStk.push(Character.getNumericValue((input[i])));
+			}
+			else if(isOperator(input[i])){
+				while(!intStk.isEmpty()){
+					val[j] = intStk.peek();
+					val[j] = intStk.pop();
+					if(intStk.isEmpty()){
+						if(j > 0){
+							resultStk.push(operation(input[i], (double) val[j - 1], val[j]));
+							j = 0;
+						}
+						else if(!resultStk.isEmpty()){
+							val[++j] = resultStk.peek();
+							resultStk.pop();
+							resultStk.push(operation(input[i], val[j - 1], val[j]));
+						}
+					}
+					else {
+						j++;
+					}
+				}
+			}
+		}
+		result = resultStk.peek();
+		resultStk.clear();
+	}
+	
+	public boolean isOperand(char c){
+		return Character.isDigit(c);
+	}
+	
+	public boolean isOperator(char c){
+		switch(c){
+		case '+':
+		case '-':
+		case '*': 
+		case '/':
+		case '%':
+		case '^':
+			return true;
+		default: 
+			return false;
+		}
+	}
+	
+	public double operation(char s, double a, double b){
+		double rslt = 0;
+		switch(s){
+		case '+':
+			rslt = a + b;
+			break;
+		case '-':
+			rslt = a - b;
+			break;
+		case '*':
+			rslt = a * b;
+			break;
+		case '/':
+			rslt = a / b;
+			break;
+		case '%':
+			rslt = (int) a % (int) b;
+			break;
+		case '^':
+			rslt = Math.pow(a, b);
+			break;
+		default: 
+			rslt = 0;
+		}
+		return rslt;
+	}
+	
+	public String getResult(){
+		return String.valueOf(result);
+	}
+
+}

@@ -1,0 +1,31 @@
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+
+/**
+ * 
+ */
+
+/**
+ * @author Alfredo
+ * CECS 277
+ * Project 8; Hash Map, Movies objects, remapping
+ * Susan
+ *
+ */
+
+/*
+ * for part a
+ * 
+ */
+public class hashDrvier {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Hashtable t = new Hashtable();
+
+	}
+
+}

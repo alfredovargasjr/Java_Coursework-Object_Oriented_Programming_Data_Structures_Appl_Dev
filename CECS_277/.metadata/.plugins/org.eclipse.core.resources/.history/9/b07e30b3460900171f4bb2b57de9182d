@@ -1,0 +1,66 @@
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class LetterFrequency {
+	
+	public int numberOfLetters;
+	public int[] letters = new int[26];	//array of letters of the alphabet. A = 0, B = 1, Z = 25
+	
+	public LetterFrequency(/*File inputFile*/)
+	{
+		File inputFil = new File("text.txt");
+		letters[0] = 0;
+		readFile(inputFil);
+	}
+	
+	public void readFile(File inFile)
+	{
+		Scanner in = null;
+		try{
+			in = new Scanner(inFile);
+		} 
+		catch(IOException ex){
+			System.out.println("File not found.");
+		} 
+		finally{
+			System.out.println("File found. Finding the Letter Frequecny...\n");
+		}
+		while(in.hasNext())
+		{
+			readLetters(in.nextLine());
+		}
+		System.out.println(numberOfLetters);
+		getLetterFrequency();
+		
+	}
+	
+	public void readLetters(String s)
+	{
+		char[] line = s.toCharArray();
+		char c;
+		for(int i = 0; i < line.length; i++)
+		{
+			c = line[i];
+			if(!java.lang.Character.isAlphabetic(c));	//test to see if char is a letter, exclude spaces and punctuation
+			else{
+				c = java.lang.Character.toUpperCase(line[i]);	//convert char to uppercase
+				numberOfLetters++;	//add to the total number of letters
+				letters[c - 65]++;	//increment the number of letter
+				System.out.println(c);
+			}
+		}
+		System.out.println(" jjjj " + letters[4]);
+	}
+	
+	public void getLetterFrequency()
+	{
+		int c = 65;
+		double num = numberOfLetters;
+		System.out.println(letters[24] / 52.0);
+		for(int i = 0; i < letters.length; i++){
+				System.out.printf("%s%4d", (char) c + ":", letters[i] / numberOfLetters);
+				c++;
+		}
+	}
+}

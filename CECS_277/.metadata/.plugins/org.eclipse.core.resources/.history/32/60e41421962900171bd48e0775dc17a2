@@ -1,0 +1,24 @@
+
+public class Hashnode <K, V> {
+	private K key;
+	public V value;
+	private Hashnode<K, V> next;
+	private int hash;
+	
+	public Hashnode(K k, V v, Hashnode<K, V> n, int h){
+		key = k;
+		value = v;
+		next = n;
+		hash = h;
+		
+	}
+	
+	public K getKey(){
+		return key;
+	}
+	
+	public V getValue(){
+		return value;
+	}
+
+}

@@ -1,0 +1,94 @@
+package theButtons;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.AbstractAction;
+import java.awt.event.ActionEvent;
+import javax.swing.Action;
+import java.awt.event.ActionListener;
+
+public class Buttons extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtThisButtonHas;
+	private JTextField txtButtonClickedN;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Buttons frame = new Buttons();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Buttons() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		txtThisButtonHas = new JTextField();
+		txtThisButtonHas.setHorizontalAlignment(SwingConstants.CENTER);
+		//String s = "This button has been clicked \n n Times!!!";
+		txtThisButtonHas.setText("Button Clicked 0 Times!!");
+		txtThisButtonHas.setBounds(10, 70, 199, 69);
+		contentPane.add(txtThisButtonHas);
+		txtThisButtonHas.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Button 1");
+		class SwingAction extends AbstractAction{
+			private int clicks = 0;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clicks++;
+				txtThisButtonHas.setText("Button Clicked " + clicks + " Times!!");
+			}
+			
+		}
+		btnNewButton.addActionListener(new SwingAction());
+		btnNewButton.setBounds(55, 152, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		
+		txtButtonClickedN = new JTextField();
+		txtButtonClickedN.setToolTipText("");
+		txtButtonClickedN.setHorizontalAlignment(SwingConstants.CENTER);
+		txtButtonClickedN.setText("Button Clicked 0 Times!!");
+		txtButtonClickedN.setColumns(10);
+		txtButtonClickedN.setBounds(219, 70, 199, 69);
+		contentPane.add(txtButtonClickedN);
+		
+		JButton btnButton = new JButton("Button 2");
+		class SwingAction_1 extends AbstractAction{
+			private int clicks = 0;
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				clicks++;
+				txtButtonClickedN.setText("Button Clicked " + clicks + " Times!!");
+			}
+		}
+		btnButton.setAction(new SwingAction_1());
+		btnButton.setBounds(283, 152, 89, 23);
+		contentPane.add(btnButton);
+	}
+}

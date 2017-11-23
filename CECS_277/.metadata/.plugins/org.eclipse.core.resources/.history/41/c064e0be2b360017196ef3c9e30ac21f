@@ -1,0 +1,14 @@
+package ShapeGame;
+
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
+public class rectangle extends JComponent{
+	
+	public void paintComponent(Graphics g){
+		g.drawRect(20,30, 50, 30);
+		g.drawLine(10, 10, 40, 40);
+	}
+
+}

@@ -1,0 +1,13 @@
+package ShapeGame;
+
+import java.awt.Graphics;
+
+import javax.swing.JComponent;
+
+public class rectangle extends JComponent{
+	
+	public void paint(Graphics g){
+		g.drawRect(20,30, 50, 30);
+	}
+
+}
